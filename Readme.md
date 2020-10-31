@@ -41,13 +41,15 @@ Good first issues:
 
 ### Recommended Readings:
 
-gPPI:
+# gPPI:
+
 Gitelman, D.R., Penny, W.D., Ashburner, J. and Friston, K.J., 2003. Modeling regional and psychophysiologic interactions in fMRI: the importance of hemodynamic deconvolution. Neuroimage, 19(1), pp.200-207. https://doi.org/10.1016/S1053-8119(03)00058-2
 McLaren, D.G., Ries, M.L., Xu, G. and Johnson, S.C., 2012. A generalized form of context-dependent psychophysiological interactions (gPPI): a comparison to standard approaches. Neuroimage, 61(4), pp.1277-1286. https://doi.org/10.1016/j.neuroimage.2012.03.068
 Hassanpour, M.S., Eggebrecht, A.T., Peelle, J.E. and Culver, J.P., 2017. Mapping effective connectivity within cortical networks with diffuse optical tomography. Neurophotonics, 4(4), p.041402. https://doi.org/10.1117/1.NPh.4.4.041402
 Gerchen, M.F., Bernal‐Casas, D. and Kirsch, P., 2014. Analyzing task‐dependent brain network changes by whole‐brain psychophysiological interactions: A comparison to conventional analysis. Human brain mapping, 35(10), pp.5071-5082. https://doi.org/10.1002/hbm.22532
 
-DCM:
+# DCM:
+
 Tak, S., Kempny, A., Friston, K.J., Leff, A.P. and Penny, W.D., 2015. Dynamic causal modelling for functional near-infrared spectroscopy. Neuroimage, 111, pp.338-349. https://doi.org/10.1016/j.neuroimage.2015.02.035
 Bulgarelli, C., Blasi, A., Arridge, S., Powell, S., de Klerk, C.C., Southgate, V., Brigadoi, S., Penny, W., Tak, S. and Hamilton, A., 2018. Dynamic causal modelling on infant fNIRS data: A validation study on a simultaneously recorded fNIRS-fMRI dataset. NeuroImage, 175, pp.413-424. https://doi.org/10.1016/j.neuroimage.2018.04.022
 Chapter 46 of SPM12 Manual. https://www.fil.ion.ucl.ac.uk/spm/doc/spm12_manual.pdf
