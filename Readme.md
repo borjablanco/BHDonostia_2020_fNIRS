@@ -1,15 +1,16 @@
 Title:
-
 Task-based connectivity analysis for functional NIRS data
 
 Project lead:
 
 Borja Blanco, twitter.com/borja_blanco4
+
 Irene Arrieta, twitter.com/irenearrieta3
 
 Project collaborators:
 
 César Caballero-Gaudes, twitter.com/CaballeroGaudes Mattermost: @CesarCaballeroGaudes
+
 Eneko Uruñuela, twitter.com/eurunuela Mattermost: @eurunuela
 
 Registered Brainhack Global 2020 Event:
