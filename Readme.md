@@ -1,31 +1,32 @@
-Title:
+### Title:
+
 Task-based connectivity analysis for functional NIRS data
 
-Project lead:
+### Project lead:
 
 Borja Blanco, twitter.com/borja_blanco4
 
 Irene Arrieta, twitter.com/irenearrieta3
 
-Project collaborators:
+### Project collaborators:
 
 César Caballero-Gaudes, twitter.com/CaballeroGaudes Mattermost: @CesarCaballeroGaudes
 
 Eneko Uruñuela, twitter.com/eurunuela Mattermost: @eurunuela
 
-Registered Brainhack Global 2020 Event:
+### Registered Brainhack Global 2020 Event:
 
 Brainhack Donostia 2020, San Sebastián-Donostia
 
-Project Description:
+### Project Description:
 
 The aim of this project is to learn, comprehend and implement implement two types of task-based connectivity analyses for functional near infrared spectroscopy (fNIRS) data, namely generalized psycho-physiological interactions (gPPI) and Dynamic Causal Modelling (DCM). These approaches will be evaluated in fNIRS data collected in 4-month-old infants while they listened to forward and backward speech sentences during sleep. Coding will mostly be in MATLAB (similar to the main programs for fNIRS data analysis), although implementation in Python can be explored.
 
-Data to use:
+### Data to use:
 
 Link to project repository/sources:
 
-Goals for Brainhack Global 2020:
+### Goals for Brainhack Global 2020:
 
 The goals of the project will be split into two different parts and days.
 Days 1-3:
@@ -38,7 +39,7 @@ Using the gPPI results, formulate and implement different models within the DCM 
 Milestone: Perform DCM data analysis in several datasets and interpret the results. Comparison between gPPI and DCM.
 Good first issues:
 
-Recommended Readings:
+### Recommended Readings:
 
 gPPI:
 Gitelman, D.R., Penny, W.D., Ashburner, J. and Friston, K.J., 2003. Modeling regional and psychophysiologic interactions in fMRI: the importance of hemodynamic deconvolution. Neuroimage, 19(1), pp.200-207. https://doi.org/10.1016/S1053-8119(03)00058-2
