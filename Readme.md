@@ -24,7 +24,7 @@ The aim of this project is to learn, comprehend and implement implement two type
 
 ### Data to use:
 
-Link to project repository/sources:
+https://github.com/borjablanco/BHDonostia_2020_fNIRS
 
 ### Goals for Brainhack Global 2020:
 
