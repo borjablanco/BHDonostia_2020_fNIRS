@@ -4,9 +4,9 @@ Task-based connectivity analysis for functional NIRS data
 
 ## Project lead:
 
-Borja Blanco, twitter.com/borja_blanco4
-
 Irene Arrieta, twitter.com/irenearrieta3
+
+Borja Blanco, twitter.com/borja_blanco4
 
 ## Project collaborators:
 
