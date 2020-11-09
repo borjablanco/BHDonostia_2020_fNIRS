@@ -3,7 +3,7 @@
 % TO DO: Clean the script
 % TO DO: Create figures at different steps to understand the process
 
-function [tdr_fw, tdr_bw] = glm_model(data)
+function [tdr_fw, tdr_bw, lstInc] = glm_model(data)
 
 % Initialize variables for deconvolution
 s = data.s(:, [2,6]);
@@ -26,6 +26,10 @@ tInc(tInc==0) = 2;
 tInc(tInc==1) = 0;
 tInc(tInc==2) = 1;
 tIncAuto = tInc;
+
+figure; 
+plot(data.OD); hold on;
+plot(data.tInc_auto)
 
 % Find stim onsets for each condition
 lstCond = find(sum(s>0,1)>0);

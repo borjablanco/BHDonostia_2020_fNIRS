@@ -58,6 +58,11 @@ time = linspace(0, length(data.OD)/sf/60, length(data.OD))
 %% Equation variables: FW and BW
 % FW
 FW = data.s(:, 2)
+FW_H = conv(FW, tbasis)
+
+figure; 
+plot(FW_H)
+
 % BW
 BW = data.s(:, 6)
 
@@ -109,7 +114,7 @@ title('Canonical HRF')
 % Choose seed, by channel.
 
 % Define seed signal
-seed = 18; % choose seed channel
+seed = 19; % choose seed channel
 
 %% Filtering depth
 
@@ -130,6 +135,8 @@ plot(data.conc(:, 1, seed), 'blue');
 figure;
 yhbo = data.GSR_oxy(:, seed);
 
+
+
 plot(yhbo,'red')
 
 yhbr = data.GSR_deoxy(:, seed);
@@ -137,8 +144,24 @@ yhbr = data.GSR_deoxy(:, seed);
 
 %% 
 % Create task dependent regressors
-[tdr_fw, tdr_bw] = glm_model(data);
+[tdr_fw, tdr_bw, lstInc] = glm_model(data);
 
+% Keep only good time_points
+yhbo_clean = yhbo(lstInc)
+
+figure; 
+plot(yhbo_clean); hold on; plot(yhbo, 'red')
+
+
+%% [seed_n * FW]_H
+
+PPI_FW = conv(yhbo_clean,  tdr_fw, 'same') % Oxy hemoglobin
+PPI_BW = conv(data.conc(:, 1, seed), BW_H) 
+
+figure; 
+plot(PPI_FW)
+
+%% 
 % Create psychophysiological interaction terms
 
 
