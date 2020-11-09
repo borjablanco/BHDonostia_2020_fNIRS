@@ -123,9 +123,12 @@ plot(data.conc(:, 1, seed), 'blue');
 % This is deoxy
 % plot(data.conc(:, 2, seed), 'red'); hold on;
 
+
 % Filtering by global signal regression
 figure;
 yhbo = data.GSR_oxy(:, seed);
+
+
 
 plot(yhbo,'red')
 
@@ -146,10 +149,12 @@ plot(yhbo_clean); hold on; plot(yhbo, 'red')
 [FW_H, BW_H, lstInc] = glm_model(data);
 
 
-%% PPI_FW & PPI_BW [seed_n * FW]_H
 
-PPI_FW = conv(yhbo_clean,  FW_H, 'same') % Oxy hemoglobin
-PPI_BW = conv(yhbo_clean, BW_H) 
+
+%% [seed_n * FW]_H
+
+PPI_FW = conv(yhbo_clean,  tdr_fw, 'same') % Oxy hemoglobin
+PPI_BW = conv(data.conc(:, 1, seed), BW_H) 
 
 figure; 
 plot(PPI_FW)
