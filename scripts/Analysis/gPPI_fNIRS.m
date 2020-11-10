@@ -7,7 +7,7 @@ addpath(genpath(path_scripts))
 % Load data
 path_data = ('/Users/irenearrietasagredo/Desktop/BCBL/Brainhack/Brainhack_2020/Fork_brainhack_2020/BHDonostia_2020_fNIRS/data_files');
 cd(path_data)
-load('BH_data2.mat')
+load('BH_data1.mat')
 
 %% Objective
 
@@ -209,11 +209,11 @@ betas = X_inv * other_ch;
 
 %% 
 figure;
-imagesc(betas([1, 9, 10], :), [-1, 1])
+imagesc(betas([5, 6], :), [-1, 1])
 colormap(jet)
 
-yticks([1, 2, 3])
-yticklabels({'Seed','PPI FW','PPI BW'})
+yticks([1, 2])
+yticklabels({'PPI FW','PPI BW'})
 xticks([1:24])
 title('Betas after Least Squares')
 
