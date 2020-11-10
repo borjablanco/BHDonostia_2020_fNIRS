@@ -3,7 +3,7 @@
 % TO DO: Clean the script
 % TO DO: Create figures at different steps to understand the process
 
-function [tdr_fw, tdr_bw, lstInc] = glm_model(data)
+function [tdr_fw, tdr_bw, lstInc, Am] = glm_model(data)
 
 % Initialize variables for deconvolution
 s = data.s(:, [2,6]);
