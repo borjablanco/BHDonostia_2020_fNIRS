@@ -1,13 +1,13 @@
 
-clear; close all;clc
+%clear; close all;clc
 
 % Add scripts path
-path_scripts = ('/Users/irenearrietasagredo/Desktop/BCBL/Brainhack/Brainhack_2020/Fork_brainhack_2020/BHDonostia_2020_fNIRS/scripts');
-addpath(genpath(path_scripts))
+%path_scripts = ('/Users/irenearrietasagredo/Desktop/BCBL/Brainhack/Brainhack_2020/Fork_brainhack_2020/BHDonostia_2020_fNIRS/scripts');
+%addpath(genpath(path_scripts))
 % Load data
-path_data = ('/Users/irenearrietasagredo/Desktop/BCBL/Brainhack/Brainhack_2020/Fork_brainhack_2020/BHDonostia_2020_fNIRS/data_files');
-cd(path_data)
-load('BH_data2.mat')
+%path_data = ('/Users/irenearrietasagredo/Desktop/BCBL/Brainhack/Brainhack_2020/Fork_brainhack_2020/BHDonostia_2020_fNIRS/data_files');
+%cd(path_data)
+%load('BH_data2.mat')
 
 %% Objective
 
