@@ -2,12 +2,12 @@
 %clear; close all;clc
 
 % Add scripts path
-%path_scripts = ('/Users/irenearrietasagredo/Desktop/BCBL/Brainhack/Brainhack_2020/Fork_brainhack_2020/BHDonostia_2020_fNIRS/scripts');
-%addpath(genpath(path_scripts))
+path_scripts = ('/Users/irenearrietasagredo/Desktop/BCBL/Brainhack/Brainhack_2020/Fork_brainhack_2020/BHDonostia_2020_fNIRS/scripts');
+addpath(genpath(path_scripts))
 % Load data
-%path_data = ('/Users/irenearrietasagredo/Desktop/BCBL/Brainhack/Brainhack_2020/Fork_brainhack_2020/BHDonostia_2020_fNIRS/data_files');
-%cd(path_data)
-%load('BH_data2.mat')
+path_data = ('/Users/irenearrietasagredo/Desktop/BCBL/Brainhack/Brainhack_2020/Fork_brainhack_2020/BHDonostia_2020_fNIRS/data_files');
+cd(path_data)
+load('BH_data2.mat')
 
 %% Objective
 
@@ -193,14 +193,14 @@ title('PPI BW')
 
 
 other_ch = data.GSR_oxy(lstInc, :);
-other_ch(:, seed) = [];
+other_ch(:, seed) = zeros(1, length(other_ch(:, seed)));
 
 
-other_ch(:, 1) = yhbo_clean *beta_1 + FW_H * beta_2 + BW_H *beta_3 + PPI_FW * beta_4 + PPI_BW * beta_5 + e;
+% other_ch(:, 1) = yhbo_clean *beta_1 + FW_H * beta_2 + BW_H *beta_3 + PPI_FW * beta_4 + PPI_BW * beta_5 + e;
 
 % Design matrix
 figure;
-X = [yhbo_clean, Am, PPI_FW, PPI_BW]
+X = [yhbo_clean, Am, PPI_FW, PPI_BW];
 X_inv = pinv(X);
 
 betas = X_inv * other_ch;
@@ -211,6 +211,11 @@ betas = X_inv * other_ch;
 figure;
 imagesc(betas([1, 9, 10], :), [-1, 1])
 colormap(jet)
+
+yticks([1, 2, 3])
+yticklabels({'Seed','PPI FW','PPI BW'})
+xticks([1:24])
+title('Betas after Least Squares')
 
 
 %% 
