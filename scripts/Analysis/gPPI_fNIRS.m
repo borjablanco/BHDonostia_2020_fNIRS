@@ -216,6 +216,11 @@ colormap jet
 %       - fit: non debiased bold signal.
 %       - debiased: debiased bold signal.
 
+% Tiene que empezar en 0
+% osea hacer de 0 a 25 no de -5 a 25
+% hrf.hrf hrf sin normalizar
+% hrf.norm hrf normalizada a uno
+
 % Define parameters
 input_signal.data = seed_hbo;
 input_signal.te = 1;
@@ -223,7 +228,7 @@ r2only = [];
 fista_params.rho =  [];
 fista_params.lambda = [];
 fista_params.weights = [];
-fista_params.itermax = [];
+fista_params.itermax = 100;
 fista_params.converged = [];
 fista_params.proximal_mode = [];
 fista_params.lambda = [];
