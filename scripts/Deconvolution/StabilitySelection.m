@@ -87,8 +87,8 @@ else
     lambda_probs = zeros(2*nscans,nvoxels,nlambdas);
 end
 
-parpool('ips_base',25);
-% parpool('local',2);
+% parpool('ips_base',25);
+parpool('local',2);
 parallelpool = gcp;
 
 fprintf('Stability selection progress:\n');
