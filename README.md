@@ -14,6 +14,8 @@ César Caballero-Gaudes, twitter.com/CaballeroGaudes Mattermost: @CesarCaballero
 
 Eneko Uruñuela, twitter.com/eurunuela Mattermost: @eurunuela
 
+Davide Momi,twitter.com/davemomi Mattermost: @dave
+
 ## Registered Brainhack Global 2020 Event:
 
 Brainhack Donostia 2020, San Sebastián-Donostia
