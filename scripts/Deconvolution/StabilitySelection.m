@@ -118,7 +118,8 @@ parfor lambdaidx = 1 : nlambdas
     
     lambda_probs(:,:,lambdaidx) = prob;
     parfor_progress;
-%     fprintf('\b|\n');
+    %     fprintf('\b|\n');
+    lambdaidx
 end
 parfor_progress(0);
 

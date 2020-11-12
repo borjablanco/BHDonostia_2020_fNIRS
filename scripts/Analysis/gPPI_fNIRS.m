@@ -10,7 +10,7 @@ addpath(genpath(path_scripts))
 path_data = ('/Users/borjablanco/Downloads/BrainHack_project/BHDonostia_2020_fNIRS/data_files');
 
 cd(path_data)
-load('BH_data2.mat')
+load('BH_data1.mat')
 
 %% Objective
 
@@ -224,20 +224,93 @@ colormap jet
 % Define parameters
 input_signal.data = seed_hbo;
 input_signal.te = 1;
-r2only = [];
+
+% r2only : changes in R2* (fMRI stuff), not needed in our case.
+r2only = 1;
+
+% FISTA PARAMETERS
 fista_params.rho =  [];
 fista_params.lambda = [];
 fista_params.weights = [];
+% Play a bit with the amount, so that if it does not converge, it stops at
+% some time. Number of surrogates that u create.
 fista_params.itermax = 100;
-fista_params.converged = [];
-fista_params.proximal_mode = [];
-fista_params.lambda = [];
-stability = 1;
-hrf = [];
+fista_params.converged = 10e-6;
+%Fista_params : name of the proximal method to be used.
+fista_params.proximal_mode = 'lasso';
+% CHANGED TO LASSO BECUASE DEFAULT IS LASSO MIXED BUT WE DON't HAVE THE
+% SCRIPT FOR THAT
+
+% STABILITY SELECTION
+% How many regularization parameters you will explore.
+stabilitySelection.nlambdas = 25;
+% It will calculate the maximum lambda value (if u go higher, the result
+% will be zero).
+stabilitySelection.maxLambdaPercentage = 0.9;
+% It will calculate the minimum lambda value (if u go higher, the result
+% will be zero). If you go lower, it may be too noisy. (play after)
+stabilitySelection.maxLambdaPercentage = 0.1;
+% Lambda logarithmic better, in order to be more detailed in the interest
+% lambda values. 'It's more probably to find  a solution when lambda = 0,
+% it'd be least squares solution. Therefore, interesting to go step by step in more detail around those small lambda values'.
+stabilitySelection.isLambdaLog = 1;
+% Number of surrogates (subsamples). Probability to calculate/K.
+stabilitySelection.niter = 50;
+
+% HRF
+tau = 0;
+sigma = 6;
+trange = [0 25];
+
+% Takes the nT (inverse to sf) and creates a vector of ones which
+% introduces in the exponential for creating the cannonical HRF.
+t = data.time;
+nT = length(t);
+dt = t(2)-t(1);
+nPre = round(trange(1)/dt);
+nPost = round(trange(2)/dt);
+nTpts = size(data.OD,1);
+tHRF = (1*nPre*dt:dt:nPost*dt)';
+ntHRF=length(tHRF);
+
+tbasis = (exp(1)*(tHRF-tau).^2/sigma^2) .* exp( -(tHRF-tau).^2/sigma^2 );
+
+% Make zero baseline values
+lstNeg = find(tHRF<0);
+tbasis(lstNeg,1) = 0;
+% figure;
+% plot(tHRF, tbasis)
+% xlabel('Seconds')
+% ylabel('Amplitude, normalized')
+% title('Canonical HRF')
+
+% Create covariance/deconvolution matrix
+tbasis_temp = tbasis;
+l = length(seed_hbo);
+l_t = length(tbasis_temp);
+
+H = zeros(l, l);
+
+% quantity of zeros on top
+q_0 = 0;
+cut = l_t;
+
+for k = 1:l
+    term = q_0 + l_t;
+    if (term>l) % If it already has to be cut
+        cut = cut - 1;
+        tbasis_temp = tbasis_temp([1:cut]);
+    end
+    H([k:(k+cut-1)], k) = tbasis_temp;
+    q_0 = q_0 + 1;
+end
+
+hrf.hrf = H;
+hrf.norm = H;
 
 
 % Perform deconvolution
-[betastruct, Ystruct, s_zero] = DeconvolutionAlgorithm(input_signal, r2only, fista_params, stability, hrf);
+[auc, lambdarange, lambda_probs] = StabilitySelection(input_signal, r2only, fista_params, stabilitySelection, hrf);
 
 % Generate PPI regressors + convolution
 
