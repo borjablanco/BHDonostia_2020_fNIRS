@@ -20,7 +20,7 @@ Brainhack Donostia 2020, San Sebastián-Donostia
 
 ## Project Description:
 
-The aim of this project is to learn, comprehend and implement implement two types of task-based connectivity analyses for functional near infrared spectroscopy (fNIRS) data, namely generalized psycho-physiological interactions (gPPI) and Dynamic Causal Modelling (DCM). These approaches will be evaluated in fNIRS data collected in 4-month-old infants while they listened to forward and backward speech sentences during sleep. Coding will mostly be in MATLAB (similar to the main programs for fNIRS data analysis), although implementation in Python can be explored.
+The aim of this project is to learn and implement two types of task-based connectivity analyses for functional near-infrared spectroscopy (fNIRS) data, namely generalized psycho-physiological interactions (gPPI) and Dynamic Causal Modelling (DCM). These approaches will be evaluated in fNIRS data collected in 4-month-old infants while they listened to forward and backward speech sentences during sleep. Coding will mostly done in MATLAB, although implementation in Python can be explored.
 
 ## Data to use:
 
@@ -31,13 +31,13 @@ https://github.com/borjablanco/BHDonostia_2020_fNIRS
 The goals of the project will be split into two different parts and days.
 Days 1-3:
 
-Implement gPPI algorithms based on the current implementation using Parametric Empirical Bayes estimation available in SPM12, and adapt this formulation to deal with the fNIRS data structure. Moreover, alternative implementation of the deconvolution algorithm based on stability selection will be explored also based on current code available in Matlab. Milestone: Compute gPPI at the channel-level and global-level for several datasets.
+Implement gPPI algorithms using Parametric Empirical Bayes estimation available in SPM12, and adapt this formulation to deal with the fNIRS data structure. Alternative implementation of a deconvolution algorithm based on stability selection will be explored. Milestone: Compute gPPI at the channel-level and global-level for several datasets.
+
 Days 4 and 5:
 
 Learn and understand the implementation of DCM for fNIRS available in SPM12 (see chapter 46 of SPM12 manual, and related articles).
-Using the gPPI results, formulate and implement different models within the DCM framework.
+Using the results of gPPI analysis, formulate and implement different models within the DCM framework.
 Milestone: Perform DCM data analysis in several datasets and interpret the results. Comparison between gPPI and DCM.
-Good first issues:
 
 ## Recommended Readings:
 
