@@ -229,18 +229,14 @@ for seed = 1:ch
     
 end
     
+
 figure; 
 subplot (221)
 imagesc(betas_fw_hbo, [-1 1]); 
-subplot (222)
-imagesc(betas_bw_hbo, [-1 1]); 
-subplot (223)
-imagesc(betas_fw_hbr, [-1 1]); 
-subplot (224)
-imagesc(betas_bw_hbr, [-1 1]); 
-colormap jet
-
-
+subplot (221)
+imagesc(betas_fw_hbo, [-1 1]); subplot (221)
+imagesc(betas_fw_hbo, [-1 1]); 
+    
 %% 
 figure;
 imagesc(betas([5, 6], :), [-1, 1])
