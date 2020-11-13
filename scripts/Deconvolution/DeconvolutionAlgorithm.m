@@ -76,11 +76,13 @@ if stability ~= 0
     subsample_idx_TE = [];
     if stability == 1 % different time points are selected across echoes
         for TEidx = 1 : length(TE)
-            subsample_idx      = sort(datasample(1:2:nscans,round(0.5*nscans*0.8),'Replace',false)) + (TEidx-1)*nscans;
+            % Modified for fNIRS data
+            subsample_idx      = sort(datasample(1:2:nscans,round(0.5*nscans),'Replace',false)) + (TEidx-1)*nscans;
             subsample_idx_TE    = [subsample_idx_TE subsample_idx];
         end
     else % same time points are selected across echoes
-        subsample_idx      = sort(datasample(1:2:nscans,round(0.5*nscans*0.8),'Replace',false));
+        % Modified for fNIRS data        
+        subsample_idx      = sort(datasample(1:2:nscans,round(0.5*nscans),'Replace',false));
         for TEidx = 1 : length(TE)
             subsample_idx_TE    = [subsample_idx_TE (subsample_idx+(TEidx-1)*nscans)];
         end
