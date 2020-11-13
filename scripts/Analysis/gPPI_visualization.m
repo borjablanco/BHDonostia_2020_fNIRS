@@ -98,21 +98,23 @@ for i=1:2
     set(hh,'edgecolor','none','facecolor','interp','facelighting','phong')
     set(hh,'diffusestrength',0.9,'specularstrength',.1,'ambientstrength',.6);
     h = light;
-    lightangle(h, 15, 100);
     lighting gouraud
+    %lightangle(h, 15, 100)       
     xlabel('x [mm]'),ylabel('y [mm]'),zlabel('z [mm]'); daspect([1 1 1])
-    caxis([-1 1]);%colorbar
+    caxis([-0.15 0.15]);%colorbar
     % Plot channels
     plot3(Mpos(1:ch,1),Mpos(1:ch,2),Mpos(1:ch,3),'ko','markerfacecolor','k','markersize',4);
     plot3(Mpos(seed,1),Mpos(seed,2),Mpos(seed,3),'ro','markerfacecolor','r','markersize',6);
     % Display 3 different views
     if i == 1
-        view([180 90 90]),axis tight,axis off
+        view([180 0 0]),axis tight,axis off    
+        %light('position', [1 0 0], 'style', 'infinite')
+        title('HbO - LH ', 'fontsize', 20)
     else
-        view([180*(-1) 90 90]),axis tight,axis off
+        view([180*(-1) 0 0]),axis tight,axis off
         %light('position', [-1 0 0], 'style', 'infinite')
+        title('HbO - RH ', 'fontsize', 20)
     end
-    title('FW', 'fontsize', 20)
     colormap(greyJet)
 end
 
@@ -126,28 +128,33 @@ for i=1:2
     set(hh,'edgecolor','none','facecolor','interp','facelighting','phong')
     set(hh,'diffusestrength',0.9,'specularstrength',.1,'ambientstrength',.6);
     h = light;
-    lightangle(h, 15, 100);
     lighting gouraud
+    %lightangle(h, 15, 100)    
     % Plot channels
     plot3(Mpos(1:ch,1),Mpos(1:ch,2),Mpos(1:ch,3),'ko','markerfacecolor','k','markersize',4);
     plot3(Mpos(seed,1),Mpos(seed,2),Mpos(seed,3),'ro','markerfacecolor','r','markersize',6);
     %Properties
     xlabel('x [mm]'),ylabel('y [mm]'),zlabel('z [mm]'),daspect([1 1 1])
-    caxis([-1 1]);%colorbar
+    caxis([-0.15 0.15]);%colorbar
     % Display 3 different views
     if i == 1
-        view([180 90 90]); axis tight; axis off
+        view([180 0 0]); axis tight; axis off
+        %light('position', [1 0 0], 'style', 'infinite')
+        title('HbR - LH ', 'fontsize', 20)
+        
     else
-        view([180*(-1) 90 90]),axis tight,axis off
+        view([180*(-1) 0 0]),axis tight,axis off
+        %light('position', [-1 0 0], 'style', 'infinite')
         colorbar
         set(gca, 'fontsize', 32)
+        title('HbR - RH ', 'fontsize', 20)
+        
     end
-    title('BW', 'fontsize', 20)
     colormap(greyJet)
 end
 
 figure
-imagesc(betas, [-1 1]); colormap(greyJet)
+imagesc(betas, [-0.15 0.15]); colormap(greyJet)
 
 % Save figure
 

@@ -27,9 +27,9 @@ tInc(tInc==1) = 0;
 tInc(tInc==2) = 1;
 tIncAuto = tInc;
 
-figure; 
-plot(data.OD); hold on;
-plot(data.tInc_auto)
+%figure; 
+%plot(data.OD); hold on;
+%plot(data.tInc_auto)
 
 % Find stim onsets for each condition
 lstCond = find(sum(s>0,1)>0);
@@ -168,10 +168,10 @@ A = [dA(:,:) Amotion]; % Figure
 Am = A(lstInc,:);
 
 % Plot design matrices
-figure
-subplot(121); imagesc(A); title('Design matrix before censoring')
-subplot(122); imagesc(Am); title('Design matrix after censoring')
-colormap gray
+%figure
+%subplot(121); imagesc(A); title('Design matrix before censoring')
+%subplot(122); imagesc(Am); title('Design matrix after censoring')
+%colormap gray
 
 % Task regressors for each condition
 tdr_fw = Am(:,1);

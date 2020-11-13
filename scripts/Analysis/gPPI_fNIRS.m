@@ -195,33 +195,39 @@ imagesc(betas_bw_hbr, [-1 1]);  title('betas PPI BW HbR')
 colormap jet
 
 figure
-subplot(311)
+subplot(211)
 plot(PPI_FW_hbo, 'red')
 hold on
 plot(PPI_FW_hbr, 'blue')
 plot(data.s(:, 2), 'black')
 plot(data.s(:, 6)*-1, 'green')
 
-subplot(312)
+subplot(212)
 plot(PPI_BW_hbo, 'red')
 hold on
 plot(PPI_BW_hbr, 'blue')
 plot(data.s(:, 2)*-1, 'green')
 plot(data.s(:, 6), 'black')
 
-non_physio = find(PPI_FW_hbo.*PPI_FW_hbr>0);
-PPI2_FW_hbo = PPI_FW_hbo;
-PPI2_FW_hbr = PPI_FW_hbr;
 
-PPI2_FW_hbo(non_physio) = 0;
-PPI2_FW_hbr(non_physio) = 0;
+betas21 = [betas_fw_hbo(21,:); betas_fw_hbr(21,:)];
 
-subplot(313)
-plot(PPI2_FW_hbo, 'red')
-hold on
-plot(PPI2_FW_hbr, 'blue')
-plot(data.s(:, 2), 'black')
-plot(data.s(:, 6)*-1, 'green')
+
+gPPI_visualization(betas21, 21)
+
+% non_physio = find(PPI_FW_hbo.*PPI_FW_hbr>0);
+% PPI2_FW_hbo = PPI_FW_hbo;
+% PPI2_FW_hbr = PPI_FW_hbr;
+% 
+% PPI2_FW_hbo(non_physio) = 0;
+% PPI2_FW_hbr(non_physio) = 0;
+% 
+% subplot(313)
+% plot(PPI2_FW_hbo, 'red')
+% hold on
+% plot(PPI2_FW_hbr, 'blue')
+% plot(data.s(:, 2), 'black')
+% plot(data.s(:, 6)*-1, 'green')
 %%  Deconvolution EU
 
 % Inputs
