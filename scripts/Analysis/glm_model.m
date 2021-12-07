@@ -7,7 +7,7 @@ function [tdr_fw, tdr_bw, lstInc, Am] = glm_model(data)
 
 % Initialize variables for deconvolution
 s = data.s(:, [2,6]);
-paramsBasis = [0 3 11]; % for gamma (tau sigma T)
+paramsBasis = [0 6 11]; % for gamma (tau sigma T)
 trange = [-5 25];
 t = data.time;
 nT = length(t);

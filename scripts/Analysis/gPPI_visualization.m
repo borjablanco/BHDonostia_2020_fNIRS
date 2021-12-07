@@ -3,12 +3,14 @@
 function gPPI_visualization(betas, seed)
 
 % Load required files
+addpath(genpath('/Users/borjablanco/Documents/MATLAB/my_scripts/Omniscripts_20190510'))
+
 load('/Users/borjablanco/Documents/MATLAB/my_scripts/borja/greyJet.mat')
-load ('/Users/borjablanco/Documents/MATLAB/head_models/6_month_MRI_correct/GMSurfaceMesh_6months.mat');
+load ('/Users/borjablanco/Documents/GitHub/BHDonostia_2020_fNIRS/data_files/GMSurfaceMesh_6months.mat');
 load('/Users/borjablanco/Documents/MATLAB/my_scripts/SPEECH_reconstruction/J_GM_wav1.mat')
 
 % Load SD file
-load('/Users/borjablanco/Documents/Speech_data/Preprocessing/NIRS_SPEECH_5231_preprocessed.mat')
+load('/Users/borjablanco/Documents/BCBL/Speech_data/Preprocessing/gamma_adjusted/NIRS_SPEECH_5231_preprocessed.mat')
 
 % Load S-D and ch positions
 load ('/Users/borjablanco/Documents/MATLAB/my_scripts/SPEECH_reconstruction/ch_pos_GM.mat')
@@ -20,17 +22,17 @@ Mpos = ch_pos_GM;
 ch = 24;
 
 % Plot GM surface and channels in GM
-figure
-hgm = trisurf(GMSurfaceMesh.face,GMSurfaceMesh.node(:,1),GMSurfaceMesh.node(:,2),GMSurfaceMesh.node(:,3));hold on
-set(hgm,'edgealpha',0.05,'facecolor','interp','facelighting','phong'),hold on
-alpha(hgm,0.5)
-plot3(ch_pos_GM(:,1),ch_pos_GM(:,2),ch_pos_GM(:,3),'ko','markerfacecolor','k','markersize',6);
-xlabel('x [mm]'),ylabel('y [mm]'),zlabel('z [mm]'),daspect([1 1 1]);grid on
+%figure
+%hgm = trisurf(GMSurfaceMesh.face,GMSurfaceMesh.node(:,1),GMSurfaceMesh.node(:,2),GMSurfaceMesh.node(:,3));hold on
+%set(hgm,'edgealpha',0.05,'facecolor','interp','facelighting','phong'),hold on
+%alpha(hgm,0.5)
+%plot3(ch_pos_GM(:,1),ch_pos_GM(:,2),ch_pos_GM(:,3),'ko','markerfacecolor','k','markersize',6);
+%xlabel('x [mm]'),ylabel('y [mm]'),zlabel('z [mm]'),daspect([1 1 1]);grid on
 % Plot channel number
-for i = 1:ch
-    shift = 2*[-2*(Mpos(i,1)< mean(Mpos(:,1))) 1 0];
-    text('position',Mpos(i,:)+shift,'string',num2str(i),'fontweight','Bold','fontsize',14,'color','r');
-end
+%for i = 1:ch
+%    shift = 2*[-2*(Mpos(i,1)< mean(Mpos(:,1))) 1 0];
+%    text('position',Mpos(i,:)+shift,'string',num2str(i),'fontweight','Bold','fontsize',14,'color','r');
+%end
 
 % Smooth GM surface for interpolation
 smooth_value = 20;
@@ -108,11 +110,11 @@ for i=1:2
     % Display 3 different views
     if i == 1
         view([180 0 0]),axis tight,axis off    
-        %light('position', [1 0 0], 'style', 'infinite')
+        light('position', [1 0 0], 'style', 'infinite')
         title('HbO - LH ', 'fontsize', 20)
     else
         view([180*(-1) 0 0]),axis tight,axis off
-        %light('position', [-1 0 0], 'style', 'infinite')
+        light('position', [-1 0 0], 'style', 'infinite')
         title('HbO - RH ', 'fontsize', 20)
     end
     colormap(greyJet)
@@ -139,12 +141,12 @@ for i=1:2
     % Display 3 different views
     if i == 1
         view([180 0 0]); axis tight; axis off
-        %light('position', [1 0 0], 'style', 'infinite')
+        light('position', [1 0 0], 'style', 'infinite')
         title('HbR - LH ', 'fontsize', 20)
         
     else
         view([180*(-1) 0 0]),axis tight,axis off
-        %light('position', [-1 0 0], 'style', 'infinite')
+        light('position', [-1 0 0], 'style', 'infinite')
         colorbar
         set(gca, 'fontsize', 32)
         title('HbR - RH ', 'fontsize', 20)
